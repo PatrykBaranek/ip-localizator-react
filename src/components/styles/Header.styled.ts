@@ -10,6 +10,6 @@ export const HeaderStyles = styled.header`
   height: 20vh;
   padding: 1.7em;
   font-size: 1.6rem;
-  background-image: url('../assets/pattern-bg.png');
+  background-image: url('../../assets/pattern-bg.png');
   background-size: cover;
 `;
