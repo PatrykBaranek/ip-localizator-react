@@ -27,8 +27,7 @@ export const useIPGeoLocation = ({ ipAddress }: IPGeoLocationProps) => {
       const response: AxiosResponse<IPFY> = await axios.get(
         `${IP_GEOLOCATION_COUNTRY_API}?apiKey=${
           import.meta.env.VITE_IPFY_API_KEY
-        }&ipAddress=${ipAddress}`,
-        { headers: { 'Access-Control-Allow-Origin': '*', cors: 'mode' } }
+        }&ipAddress=${ipAddress}`
       );
 
       if (response.status === 200) {
