@@ -8,13 +8,14 @@ export const ResultContainer = styled.ul`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  gap: 1em;
+  gap: 0.2em;
   background-color: #fff;
   list-style: none;
 
   width: 70%;
   padding: 1.5em;
   border-radius: 0.5em;
+  z-index: 1000;
 
   & li {
     flex: 1;
