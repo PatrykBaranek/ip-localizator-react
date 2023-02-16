@@ -1,15 +1,15 @@
 {
-  "homepage": "https://patrykbaranek.github.io/ip-localizator",
+  "homepage": "https://patrykbaranek.github.io/ip-localizator-react/",
   "name": "ip-address-tracker-react",
   "private": true,
   "version": "0.0.0",
   "type": "module",
   "scripts": {
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build",
     "dev": "vite",
     "build": "tsc && vite build",
-    "preview": "vite preview",
-    "predeploy": "npm run build",
-    "deploy": "gh-pages -d build"
+    "preview": "vite preview"
   },
   "dependencies": {
     "axios": "^1.3.3",
