@@ -4,7 +4,7 @@ export const ResultContainer = styled.ul`
   box-sizing: content-box;
   position: absolute;
   top: 85%;
-  height: 30vh;
+  height: auto;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -23,9 +23,11 @@ export const ResultContainer = styled.ul`
     flex-direction: column;
     justify-content: space-around;
     align-items: center;
+    padding: 0.5em;
     margin-bottom: 1em;
 
     & h2 {
+      height: 50%;
       flex: 1;
       justify-self: flex-start;
       text-transform: uppercase;
@@ -46,7 +48,18 @@ export const ResultContainer = styled.ul`
   }
 
   @media (min-width: 768px) {
+    height: 50%;
     flex-direction: row;
-    height: 10vh;
+    justify-content: space-around;
+    border-right: 1px solid var(--very-dark-gray);
+
+    &:last-child {
+      border-right: none;
+    }
+
+    & span {
+      justify-self: baseline;
+      padding: 0.2em;
+    }
   }
 `;
