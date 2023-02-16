@@ -1,41 +1,25 @@
-import React from 'react';
-import { ButtonStyles } from './styles/Button.styled';
+import React, { useEffect, useState } from 'react';
 import { HeaderStyles } from './styles/Header.styled';
-import { SearchInputStyles } from './styles/SearchInput.styled';
 
-import ArrowRightSvg from '../assets/icon-arrow.svg';
-import { ResultContainer } from './styles/ResultContainer.styled';
+import { Result } from './Result';
+import { SearchBar } from './SearchBar';
+import { useIPGeoLocation } from './hooks/useIPGeoLocation';
+import { IPFY } from '../types/ipfy-types';
 
 export const Header: React.FC = () => {
+  const [ipAddress, setIpAddress] = useState<string | undefined>(undefined);
+  const { result } = useIPGeoLocation({ ipAddress: ipAddress });
+  const [showResult, setShowResult] = useState<boolean>(false);
+
+  const handleSearch = (searchPhrease: string) => {
+    setIpAddress(searchPhrease);
+  };
+
   return (
     <HeaderStyles>
       <h1>IP Address Tracker</h1>
-
-      {/* search Input */}
-
-      <div>
-        <SearchInputStyles />
-        <ButtonStyles>
-          <img src={ArrowRightSvg} alt="arrow right" />
-        </ButtonStyles>
-      </div>
-
-      {/* search result */}
-
-      <ResultContainer>
-        <div>
-          <h2>IP Address</h2>
-        </div>
-        <div>
-          <h2>Location</h2>
-        </div>
-        <div>
-          <h2>Timezone</h2>
-        </div>
-        <div>
-          <h2>ISP</h2>
-        </div>
-      </ResultContainer>
+      <SearchBar handleSearch={handleSearch} handleShowResult={setShowResult} />
+      {showResult && result && <Result data={result as IPFY} />}
     </HeaderStyles>
   );
 };
