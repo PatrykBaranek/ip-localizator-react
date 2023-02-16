@@ -22,11 +22,13 @@ export const useIPGeoLocation = ({ ipAddress }: IPGeoLocationProps) => {
 
   const fetchIPGeoLocation = async (): Promise<void> => {
     if (ipAddress === undefined) return;
+
     try {
       const response: AxiosResponse<IPFY> = await axios.get(
         `${IP_GEOLOCATION_COUNTRY_API}?apiKey=${
           import.meta.env.VITE_IPFY_API_KEY
-        }&ipAddress=${ipAddress}`
+        }&ipAddress=${ipAddress}`,
+        { headers: { 'Access-Control-Allow-Origin': '*', cors: 'mode' } }
       );
 
       if (response.status === 200) {

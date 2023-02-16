@@ -4,9 +4,13 @@ import { HeaderStyles } from './styles/Header.styled';
 import { Result } from './Result';
 import { SearchBar } from './SearchBar';
 import { useIPGeoLocation } from './hooks/useIPGeoLocation';
-import { IPFY } from '../types/ipfy-types';
+import { ILocation, IPFY } from '../types/ipfy-types';
 
-export const Header: React.FC = () => {
+interface IHeaderProps {
+  handleLocalization: (localization: ILocation) => void;
+}
+
+export const Header: React.FC<IHeaderProps> = ({ handleLocalization }) => {
   const [ipAddress, setIpAddress] = useState<string | undefined>(undefined);
   const { result } = useIPGeoLocation({ ipAddress: ipAddress });
   const [showResult, setShowResult] = useState<boolean>(false);
@@ -14,6 +18,12 @@ export const Header: React.FC = () => {
   const handleSearch = (searchPhrease: string) => {
     setIpAddress(searchPhrease);
   };
+
+  useEffect(() => {
+    if (result !== undefined) {
+      handleLocalization(result.location);
+    }
+  }, [result]);
 
   return (
     <HeaderStyles>
