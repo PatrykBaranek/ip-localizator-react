@@ -71,7 +71,7 @@ Error generating stack: `+i.message+`
   box-sizing: content-box;
   position: absolute;
   top: 85%;
-  height: 30vh;
+  height: auto;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -90,9 +90,11 @@ Error generating stack: `+i.message+`
     flex-direction: column;
     justify-content: space-around;
     align-items: center;
+    padding: 0.5em;
     margin-bottom: 1em;
 
     & h2 {
+      height: 50%;
       flex: 1;
       justify-self: flex-start;
       text-transform: uppercase;
@@ -113,8 +115,19 @@ Error generating stack: `+i.message+`
   }
 
   @media (min-width: 768px) {
+    height: 50%;
     flex-direction: row;
-    height: 10vh;
+    justify-content: space-around;
+    border-right: 1px solid var(--very-dark-gray);
+
+    &:last-child {
+      border-right: none;
+    }
+
+    & span {
+      justify-self: baseline;
+      padding: 0.2em;
+    }
   }
 `,Y0=({data:e})=>Ct(G0,{children:[Ct("li",{children:[ce("h2",{children:"IP Address"}),ce("span",{children:e.ip})]}),Ct("li",{children:[ce("h2",{children:"Location"}),ce("span",{children:e.location.region})]}),Ct("li",{children:[ce("h2",{children:"Timezone"}),Ct("span",{children:["UTC ",e.location.timezone]})]}),Ct("li",{children:[ce("h2",{children:"ISP"}),ce("span",{children:e.isp})]})]}),X0=qr.button`
   height: inherit;
