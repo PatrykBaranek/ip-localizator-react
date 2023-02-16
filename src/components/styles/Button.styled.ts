@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export const ButtonStyles = styled.button`
+export const Button = styled.button`
   height: inherit;
   padding: inherit;
   background-color: #000000;
