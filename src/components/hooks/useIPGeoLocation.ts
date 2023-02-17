@@ -2,7 +2,7 @@ import axios, { AxiosResponse } from 'axios';
 import { useEffect, useState } from 'react';
 import { IPFY } from '../../types/ipfy-types';
 
-const IP_GEOLOCATION_COUNTRY_API = 'https://geo.ipify.org/api/v2/country';
+const IP_GEOLOCATION_COUNTRY_API = 'https://geo.ipify.org/api/v2/country,city';
 
 interface IPGeoLocationProps {
   ipAddress: string | undefined;
