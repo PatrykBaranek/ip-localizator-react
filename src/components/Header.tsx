@@ -7,29 +7,29 @@ import { useIPGeoLocation } from './hooks/useIPGeoLocation';
 import { ILocation, IPFY } from '../types/ipfy-types';
 
 interface IHeaderProps {
-  handleLocalization: (localization: ILocation) => void;
+	handleLocalization: (localization: ILocation) => void;
 }
 
 export const Header: React.FC<IHeaderProps> = ({ handleLocalization }) => {
-  const [ipAddress, setIpAddress] = useState<string | undefined>(undefined);
-  const { result } = useIPGeoLocation({ ipAddress: ipAddress });
-  const [showResult, setShowResult] = useState<boolean>(false);
+	const [ipAddress, setIpAddress] = useState<string | undefined>(undefined);
+	const { result } = useIPGeoLocation({ ipAddress: ipAddress });
+	const [showResult, setShowResult] = useState<boolean>(false);
 
-  const handleSearch = (searchPhrease: string) => {
-    setIpAddress(searchPhrease);
-  };
+	const handleSearch = (searchPhrease: string) => {
+		setIpAddress(searchPhrease);
+	};
 
-  useEffect(() => {
-    if (result !== undefined) {
-      handleLocalization(result.location);
-    }
-  }, [result]);
+	useEffect(() => {
+		if (result !== undefined) {
+			handleLocalization(result.location);
+		}
+	}, [result]);
 
-  return (
-    <HeaderStyles>
-      <h1>IP Address Tracker</h1>
-      <SearchBar handleSearch={handleSearch} handleShowResult={setShowResult} />
-      {showResult && result && <Result data={result as IPFY} />}
-    </HeaderStyles>
-  );
+	return (
+		<HeaderStyles>
+			<h1>IP Address Tracker</h1>
+			<SearchBar handleSearch={handleSearch} handleShowResult={setShowResult} />
+			{showResult && result && <Result data={result} />}
+		</HeaderStyles>
+	);
 };

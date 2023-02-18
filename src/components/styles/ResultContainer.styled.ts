@@ -1,66 +1,76 @@
 import styled from 'styled-components';
 
 export const ResultContainer = styled.ul`
-  box-sizing: content-box;
-  position: absolute;
-  top: 85%;
-  height: auto;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  gap: 0.2em;
-  background-color: #fff;
-  list-style: none;
+	box-sizing: content-box;
+	position: absolute;
+	top: 90%;
+	height: auto;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	gap: 0.2em;
+	background-color: #fff;
+	list-style: none;
 
-  width: 70%;
-  padding: 1.5em;
-  border-radius: 0.5em;
-  z-index: 1000;
+	width: 70%;
+	padding: 1.5em;
+	border-radius: 0.5em;
+	z-index: 1000;
+	cursor: pointer;
 
-  & li {
-    flex: 1;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-    align-items: center;
-    padding: 0.5em;
-    margin-bottom: 1em;
+	& img {
+		position: absolute;
+		top: 10px;
+		right: 20px;
+		width: 25px;
+		background: #000;
+		filter: invert(100%);
+	}
 
-    & h2 {
-      height: 50%;
-      flex: 1;
-      justify-self: flex-start;
-      text-transform: uppercase;
-      letter-spacing: 0.2em;
-      text-align: center;
-      font-size: 1.2rem;
-      color: var(--very-dark-gray-color);
-    }
+	& li {
+		flex: 1;
+		height: 100%;
+		display: flex;
+		flex-direction: column;
+		justify-content: space-around;
+		align-items: center;
+		padding: 0.5em;
+		margin-bottom: 1em;
 
-    & span {
-      flex: 1;
-      letter-spacing: 0.2em;
-      text-align: center;
-      font-size: 1.8rem;
-      font-weight: 700;
-      color: #000;
-    }
-  }
+		& h2 {
+			height: 50%;
+			flex: 1;
+			justify-self: flex-start;
+			text-transform: uppercase;
+			letter-spacing: 0.2em;
+			text-align: center;
+			font-size: 1.2rem;
+			color: var(--very-dark-gray-color);
+		}
 
-  @media (min-width: 768px) {
-    height: 50%;
-    flex-direction: row;
-    justify-content: space-around;
-    border-right: 1px solid var(--very-dark-gray);
+		& span {
+			flex: 1;
+			letter-spacing: 0.2em;
+			text-align: center;
+			font-size: 1.8rem;
+			font-weight: 700;
+			color: #000;
+		}
+	}
 
-    &:last-child {
-      border-right: none;
-    }
+	@media (min-width: 768px) {
+		height: 50%;
+		flex-direction: row;
+		justify-content: space-around;
+		border-right: 1px solid var(--very-dark-gray);
 
-    & span {
-      justify-self: baseline;
-      padding: 0.2em;
-    }
-  }
+		&:last-child {
+			border-right: none;
+		}
+
+		& span {
+			justify-self: baseline;
+			padding: 0.2em;
+		}
+	}
 `;
